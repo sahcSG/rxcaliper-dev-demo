@@ -113,7 +113,6 @@ class BluetoothActivity : AppCompatActivity(), View.OnClickListener {
     private fun getPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             var permissionCheck = 0
-            permissionCheck = this.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
             permissionCheck += this.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
 
             // 需要请求权限
