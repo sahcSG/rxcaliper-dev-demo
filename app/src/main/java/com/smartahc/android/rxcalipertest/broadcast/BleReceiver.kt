@@ -33,15 +33,6 @@ class BleReceiver : BroadcastReceiver() {
                 Constant.BLE_EAR_TAG_PARSE_MSG -> {
                     dataParseListener?.onEarTagParse(it.getStringExtra(Constant.BLE_EAR_TAG_DATA))
                 }
-                /*Constant.BLE_SWITCH_MSG -> {
-                    dataParseListener?.onSwitchParse(it.getParcelableExtra(Constant.BLE_SWITCH_DATA))
-                }
-                Constant.BLE_MODULE_MSG -> {
-                    dataParseListener?.onModuleParse(it.getParcelableExtra(Constant.BLE_MODULE_DATA))
-                }
-                Constant.BLE_MAGNET_MSG -> {
-                    dataParseListener?.onMagnetParse(it.getParcelableExtra(Constant.BLE_MAGNET_DATA))
-                }*/
                 else -> {
                     Log.d("BleReceiver", "-- other message --")
                 }
