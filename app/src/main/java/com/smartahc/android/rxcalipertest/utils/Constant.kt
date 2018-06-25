@@ -5,6 +5,6 @@ package com.smartahc.android.rxcalipertest.utils
  * Desc:常量
  */
 object Constant {
-    val BLE_NAME: String = "ble_name" // 蓝牙名称
-    val BLE_MAC: String = "ble_mac" // 蓝牙mac地址
+    const val BLE_NAME: String = "ble_name" // 蓝牙名称
+    const val BLE_MAC: String = "ble_mac" // 蓝牙mac地址
 }

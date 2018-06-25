@@ -37,13 +37,13 @@ class BluetoothActivity : AppCompatActivity(), View.OnClickListener {
     private var mService: BleService? = null
     private val connection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName, service: IBinder) {
-            mService = (service as LocalBinder).getService()
+            mService = (service as LocalBinder).service
             mService?.let {
-                if (!it.isBleEnable()) {
+                if (!it.isBleEnable) {
                     Toast.makeText(this@BluetoothActivity, "当前设备不支持蓝牙", Toast.LENGTH_SHORT).show()
                     return
                 }
-                if (!it.isBleStart()) {
+                if (!it.isBleStart) {
                     val intent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)

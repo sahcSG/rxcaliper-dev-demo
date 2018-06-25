@@ -28,6 +28,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.41'
     api 'com.android.support:recyclerview-v7:27.1.1'
-    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     implementation files('libs/smartble-release.jar')
 }

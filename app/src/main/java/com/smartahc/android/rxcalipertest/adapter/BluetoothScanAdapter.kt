@@ -29,8 +29,8 @@ class BluetoothScanAdapter(context: Context, list: ArrayList<BluetoothDevice>) :
     }
 
     override fun onBindViewHolder(holder: BluetoothHolder, position: Int) {
-        holder!!.name.text = "名称：" + mList?.get(position)?.name
-        holder!!.address.text = "Mac地址：" + mList?.get(position)?.address
+        holder.name.text = "名称：" + mList?.get(position)?.name
+        holder.address.text = "Mac地址：" + mList?.get(position)?.address
         holder.itemView.tag = position
     }
 

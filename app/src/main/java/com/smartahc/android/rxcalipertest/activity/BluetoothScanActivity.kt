@@ -33,7 +33,7 @@ class BluetoothScanActivity : AppCompatActivity(), IBleBase.BleDisconnectListene
 
     private var mListData = arrayListOf<BluetoothDevice>()
     private var mBluetoothAdapter: BluetoothScanAdapter? = null
-    private lateinit var loadingDailog: Dialog
+    private var loadingDialog: Dialog? = null
 
     private lateinit var currentBleName: String // 当前连接的BLE名字
     private lateinit var currentBleMac: String // 当前连接的BLE地址
@@ -45,7 +45,7 @@ class BluetoothScanActivity : AppCompatActivity(), IBleBase.BleDisconnectListene
         }
 
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            mService = (service as LocalBinder).getService()
+            mService = (service as LocalBinder).service
             // 开始搜索
             mService?.search()
         }
@@ -136,17 +136,17 @@ class BluetoothScanActivity : AppCompatActivity(), IBleBase.BleDisconnectListene
     }
 
     private fun showLoading(msg: String) {
-        loadingDailog = Dialog(this)
+        loadingDialog = Dialog(this)
         val view: View = LayoutInflater.from(this).inflate(R.layout.view_loading_dialog, null)
         view.findViewById<TextView>(R.id.tvTips).text = msg
-        loadingDailog.setContentView(view)
-        loadingDailog.window.setGravity(Gravity.CENTER)
-        loadingDailog.show()
+        loadingDialog?.setContentView(view)
+        loadingDialog?.window?.setGravity(Gravity.CENTER)
+        loadingDialog?.show()
     }
 
     private fun hideLoading() {
-        if (loadingDailog != null) {
-            loadingDailog.dismiss()
+        loadingDialog?.let {
+            loadingDialog?.dismiss()
         }
     }
 
